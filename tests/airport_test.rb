@@ -125,12 +125,13 @@ class TestAirport < MiniTest::Unit::TestCase
     end
       
     assert airport2.full?  
+
     airport2.planes.each do |plane|
       assert_equal 'landed', plane.status
     end 
 
-    airport2.planes.each do |plane|
-      airport2.stub :weather_conditions, "sunny" do
+    airport2.stub :weather_conditions, "sunny" do
+      airport2.planes.each do |plane|
         airport2.take_off(plane)
         assert_equal 'flying', plane.status
       end  
