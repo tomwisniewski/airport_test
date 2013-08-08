@@ -137,6 +137,7 @@ class TestAirport < MiniTest::Unit::TestCase
       end  
     end
 
+    puts airport2.planes.count
   end
  
 end
